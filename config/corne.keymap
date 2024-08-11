@@ -36,7 +36,7 @@
 // | none | ESC |  (  |  )  | \ | | ` ~ |                      |  +  |  7  |  8  |  9  |  0  | none |
 // | none | TAB |  {  |  }  | ' " |  _  |                      |  -  |  4  |  5  |  6  |  =  | none |
 // | none | ALT |  [  |  ]  |LCTRL| LGUI|                      |  *  |  1  |  2  |  3  |  ^  | none |
-//                    |MSELY|LSHFT| SPC |                      | ENT | RCTL|NUMLY|
+//                    |MSELY|LSHFT| SPC |                      | ENT | BKSP|NUMLY|
                         bindings = <
     &none  &kp ESC  &kp LPAR  &kp RPAR &kp BSLH  &kp GRAVE     &kp PLUS  &kp N7     &kp N8   &kp N9    &kp N0    &none
     &none  &kp TAB  &kp LBRC  &kp RBRC &kp APOS  &kp DEL       &kp MINUS &kp N4     &kp N5   &kp N6    &kp EQUAL &none
@@ -45,12 +45,12 @@
                         >;
                 };
 
-                raise_layer {
+                nav_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// | none | ESC |  @  |  #  |  $  |  %  |        | DEL | HOME| PGDN| PGUP| END | none |
+// | none | TAB |     |     |     |     |        | INS | LEFT| DOWN|  UP |RIGHT| none |
+// | none | ALT |     |     |     |     |        |     |     |     |NUMLK|CAPLK| none |
+//                    |NAVLY|LSHFT| SPC |        | ENT | BKSP|BLTLY|
                         bindings = <
    &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
    &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
@@ -58,5 +58,20 @@
                              &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
                         >;
                 };
+                
+                mouse_layer {
+// -----------------------------------------------------------------------------------------
+// | none | ESC |  @  |  #  |  $  |  %  |        | DEL | HOME| PGDN| PGUP| END | none |
+// | none | TAB |     |     |     |     |        | INS |MSELT|MSEDN|MSEUP|MSERT| none |
+// | none | ALT |     |     |     |     |        |     |     |     |NUMLK|CAPLK| none |
+//                    |NAVLY|LSHFT| SPC |        | ENT | BKSP|BLTLY|
+                        bindings = <
+   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp none 
+   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &mmv MOUSE_LEFT &mmv MOUSE_DOWN  &mmv MOUSE_UP &mmv MOUSE_RIGHT &kp none 
+   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp none 
+                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+                        >;
+                };
+
         };
 };
